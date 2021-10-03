@@ -64,30 +64,41 @@ public class MainActivity extends AppCompatActivity {
 
         EditText editText = (EditText) findViewById(R.id.editText);
 
-        Number myNumber = new Number();
+        String message;
 
-        myNumber.number = Integer.parseInt(editText.getText().toString());
+        if (editText.getText().toString().isEmpty()) {
 
-        String message = editText.getText().toString();
-
-        if (myNumber.isSquare() && myNumber.isTriangular()) {
-
-            message = message + " is square and triangular!";
-
-        } else if (myNumber.isSquare()) {
-
-            message = message + " is square but not triangular";
-
-        } else if (myNumber.isTriangular()) {
-
-            message = message + " is triangular but not square";
+            message = "Please enter a number";
 
         } else {
 
-            message = message + " is neither triangular or square";
+            Number myNumber = new Number();
+
+            myNumber.number = Integer.parseInt(editText.getText().toString());
+
+            message = editText.getText().toString();
+
+            if (myNumber.isSquare() && myNumber.isTriangular()) {
+
+                message = message + " is square and triangular!";
+
+            } else if (myNumber.isSquare()) {
+
+                message = message + " is square but not triangular";
+
+            } else if (myNumber.isTriangular()) {
+
+                message = message + " is triangular but not square";
+
+            } else {
+
+                message = message + " is neither triangular or square";
+
+            }
+
         }
 
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
     }
 
