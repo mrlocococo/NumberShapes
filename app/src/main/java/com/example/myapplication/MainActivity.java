@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
             double squareRoot = Math.sqrt(number);
 
-            if (squareRoot = Math.floor(squareRoot)) {
+            if (squareRoot == Math.floor(squareRoot)) {
 
                 return true;
 
@@ -56,15 +58,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    Number myNumber = new Number();
-
-    myNumber.number = 6;
-
-    System.out.println(myNumber.isTriangular());
-
     public void testNumber (View view) {
 
         Log.i("Info", "button pressed");
+
+        EditText editText = (EditText) findViewById(R.id.editText);
+
+        Number myNumber = new Number();
+
+        myNumber.number = Integer.parseInt(editText.getText().toString());
+
+        String message = editText.getText().toString();
+
+        if (myNumber.isSquare() && myNumber.isTriangular()) {
+
+            message = message + " is square and triangular!";
+
+        } else if (myNumber.isSquare()) {
+
+            message = message + " is square but not triangular";
+
+        } else if (myNumber.isTriangular()) {
+
+            message = message + " is triangular but not square";
+
+        } else {
+
+            message = message + " is neither triangular or square";
+        }
+
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
     }
 
