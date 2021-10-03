@@ -12,6 +12,22 @@ public class MainActivity extends AppCompatActivity {
 
         int number;
 
+        public boolean isSquare(){
+
+            double squareRoot = Math.sqrt(number);
+
+            if (squareRoot = Math.floor(squareRoot)) {
+
+                return true;
+
+            } else {
+
+                return false;
+
+            }
+
+        }
+
         public boolean isTriangular() {
 
             int x = 1;
